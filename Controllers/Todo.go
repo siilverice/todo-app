@@ -26,3 +26,8 @@ func CreateTodo(c *gin.Context) {
 		c.JSON(http.StatusCreated, todo)
 	}
 }
+
+func GetTodo(c *gin.Context) {
+	var todo Models.Todo
+	c.JSON(http.StatusCreated, todo)
+}
