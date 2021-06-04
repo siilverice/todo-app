@@ -16,3 +16,6 @@
 
 # IDE
 .DS_Store
+
+# DB
+*.db
