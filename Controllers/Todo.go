@@ -31,3 +31,10 @@ func GetTodo(c *gin.Context) {
 	var todo Models.Todo
 	c.JSON(http.StatusCreated, todo)
 }
+
+func UpdateTodo(c *gin.Context) {
+	c.AbortWithStatus(http.StatusNotImplemented)
+}
+func DeleteTodo(c *gin.Context) {
+	c.AbortWithStatus(http.StatusNotImplemented)
+}

@@ -27,13 +27,13 @@ func GetTodo(todo *Todo, id string) (err error) {
 	return nil
 }
 
-func UpdateTodos(todo *Todo) (err error) {
+func UpdateTodo(todo *Todo) (err error) {
 	fmt.Println(todo)
 	Config.DB.Save(todo)
 	return nil
 }
 
-func DeleteTodos(todo *Todo) (err error) {
+func DeleteTodo(todo *Todo) (err error) {
 	Config.DB.Delete(todo)
 	return nil
 }
