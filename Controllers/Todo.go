@@ -17,6 +17,7 @@ func GetAllTodos(c *gin.Context) {
 }
 
 func CreateTodo(c *gin.Context) {
+	// TODO: Validate required field
 	var todo Models.Todo
 	if err := c.BindJSON(&todo); err != nil {
 		c.AbortWithStatus(http.StatusBadRequest)
@@ -28,13 +29,21 @@ func CreateTodo(c *gin.Context) {
 }
 
 func GetTodo(c *gin.Context) {
+	// TODO: handle id not found, should return nil instead of default todo
+	id := c.Param("id")
 	var todo Models.Todo
-	c.JSON(http.StatusCreated, todo)
+
+	if err := Models.GetTodo(&todo, id); err != nil {
+		c.AbortWithStatus(http.StatusNotFound)
+	} else {
+		c.JSON(http.StatusOK, todo)
+	}
 }
 
 func UpdateTodo(c *gin.Context) {
 	c.AbortWithStatus(http.StatusNotImplemented)
 }
+
 func DeleteTodo(c *gin.Context) {
 	c.AbortWithStatus(http.StatusNotImplemented)
 }
