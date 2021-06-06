@@ -41,7 +41,22 @@ func GetTodo(c *gin.Context) {
 }
 
 func UpdateTodo(c *gin.Context) {
-	c.AbortWithStatus(http.StatusNotImplemented)
+	id := c.Param("id")
+	var todo Models.Todo
+
+	// TODO: handle id not found
+	if err := Models.GetTodo(&todo, id); err != nil {
+		c.AbortWithStatus(http.StatusNotFound)
+	}
+
+	if err := c.BindJSON(&todo); err != nil {
+		c.AbortWithStatus(http.StatusBadRequest)
+	}
+
+	if err := Models.UpdateTodo(&todo); err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+	}
+	c.JSON(http.StatusOK, todo)
 }
 
 func DeleteTodo(c *gin.Context) {
