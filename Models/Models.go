@@ -1,8 +1,6 @@
 package Models
 
 import (
-	"fmt"
-
 	"github.com/siilverice/todo-app/Config"
 )
 
@@ -28,7 +26,6 @@ func GetTodo(todo *Todo, id string) (err error) {
 }
 
 func UpdateTodo(todo *Todo) (err error) {
-	fmt.Println(todo)
 	Config.DB.Save(todo)
 	return nil
 }
