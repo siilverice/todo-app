@@ -14,8 +14,25 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-# IDE
-.DS_Store
-
 # DB
 *.db
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+coverage
+
+# production
+build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+*.log*
